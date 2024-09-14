@@ -7,7 +7,7 @@ import { useUser } from '@clerk/clerk-react'; // Import Clerk's useUser to get u
 
 const MyEvents = () => {
     const { user } = useUser();  // Getting the user object from Clerk
-    const userId = user.id;  // Extracting userId from the logged-in user
+    const userId = user.id;  // Extracting userId from the logged-in user 
     const API_URL = 'http://localhost:5000';  // Replace with your actual API URL
 
     // State to store events
@@ -41,15 +41,15 @@ const MyEvents = () => {
 
     return (
         <>
-            <div className='flex justify-start items-center p-8'>
+            <div className='flex flex-col justify-start items-start p-8'>
 
-                <Link to='/create-event' className='h-52 w-52 m-6 border-2 flex flex-col justify-evenly items-center text-white bg-[#ffffff21] rounded-md hover:scale-[1.02]'>
+                <Link to='/create-event' className='mx-auto my-6 w-[250px] border-2 flex justify-evenly items-center text-slate-800 bg-sky-500 rounded-md hover:scale-[1.02] hover:bg-yellow-300'>
                     <h1 className='font-semibold text-xl'> Create Event </h1>
                     <img src={CreateBtn} alt='add' />
                 </Link>
 
                 {/* Render event cards */}
-                <div className='flex flex-wrap'>
+                <div className='flex flex-wrap justify-center md:justify-normal'>
                     {events.length > 0 ? (
                         events.map((event) => (
                             <MyEventCard key={event._id} event={event} />  // Pass event data as a prop

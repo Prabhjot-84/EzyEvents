@@ -8,7 +8,7 @@ const MyEventCard = ({ event }) => {
         navigate(`/my-event-info/${event._id}`); // Navigate to event detail page with event id
     };
 
-    const imageUrl = `https://picsum.photos/1600/900/?${event.title}`;
+    const imageUrl = `https://picsum.photos/1600/900/?${event.title}`; 
 
     return (
         <div className='flex flex-col items-center justify-center w-72 m-6 rounded-md'>

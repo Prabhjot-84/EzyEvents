@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import EventCard from '../events/MyEventCard';
+import EventCard from './EventCard.jsx';
 import axios from 'axios';
 
 const ViewEvents = () => {
@@ -15,9 +15,6 @@ const ViewEvents = () => {
                         'Content-Type': 'application/json',
                     },
                 });
-
-                // Check the response data structure
-                console.log('Fetched events:', response.data);
 
                 // Assuming response.data is an array of events
                 setEvents(response.data);

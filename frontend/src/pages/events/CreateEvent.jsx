@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios'; // Make sure to install axios
 import { useUser } from '@clerk/clerk-react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const CreateEvent = () => {
-
+    const navigate = useNavigate(); // Initialize useNavigate
     // Extracting User id from Clerk
     const { user } = useUser();
-    const userId = user.id;
+    const userId = user.id; 
 
-    
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [date, setDate] = useState('');
@@ -34,6 +34,9 @@ const CreateEvent = () => {
             // Send POST request to the backend
             const response = await axios.post('http://localhost:5000/api/events', eventData);
             console.log('Event created:', response.data);
+
+            // Navigate to home after successful event creation
+            navigate('/'); // Redirect to home page
         } catch (error) {
             console.error('Error creating event:', error);
         }

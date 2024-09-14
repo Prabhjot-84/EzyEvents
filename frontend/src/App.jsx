@@ -7,6 +7,7 @@ import ViewEvents from './pages/view/ViewEvents';
 import History from './pages/history/History';
 import CreateEvent from './pages/events/CreateEvent';
 import MyEventInfo from './pages/events/MyEventInfo';
+import RegisterEvent from './pages/view/RegisterEvent';
 // import Notification from './pages/notification/Notification';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/create-event' element={<CreateEvent />} />
         <Route path="/my-event-info/:id" element={<MyEventInfo />} />
         <Route path='/view-events' element={<ViewEvents />} />
+        <Route path='/register-event-page/:id' element={<RegisterEvent />} />
         <Route path='/history' element={<History />} />
         {/* <Route path='/notifications' element={<Notification />} /> */}
       </Route>

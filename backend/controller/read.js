@@ -53,3 +53,29 @@ export const getAllEvents = async (req, res) => {
         });
     }
 };
+
+
+
+export const readEvent = async (req, res) => {
+    try {
+        const { id } = req.params; // Get the event ID from the URL parameters
+
+        // Find the event by ID
+        const event = await EventModel.findById(id);
+
+        // Check if the event was found
+        if (!event) {
+            return res.status(404).json({ message: 'Event not found.' });
+        }
+
+        // Return the event details
+        res.status(200).json(event);
+    } catch (error) {
+        // Handle any errors that occurred
+        console.error('Error fetching event:', error.message);
+        res.status(500).json({
+            message: 'An error occurred while fetching the event',
+            error: error.message
+        });
+    }
+};

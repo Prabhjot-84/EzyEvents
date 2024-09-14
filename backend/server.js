@@ -6,7 +6,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import { addEventFunc } from './controller/create.js'
 ;
-import { getAllEvents, readUserEvents } from './controller/read.js';
+import { getAllEvents, readEvent, readUserEvents } from './controller/read.js';
 import { updateEvent } from './controller/update.js';
 
 dotenv.config();
@@ -35,9 +35,10 @@ app.post('/api/events', addEventFunc); // route for adding events
 // READ
 app.get('/api/events', readUserEvents);
 app.get('/api/allevents', getAllEvents);  // route to get all events
+app.get('/api/my-event-info/:id', readEvent);  // Route to read an event
 
 // UPDATE
-app.put('/api/events/:id', updateEvent);  // Route to update an event
+app.put('/api/update-event/:id', updateEvent);
 
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`); 
