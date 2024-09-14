@@ -10,9 +10,8 @@ const RegisterEvent = () => {
     useEffect(() => {
         const fetchEvent = async () => {
             try {
-                console.log('Fetching event with ID:', eventId); // Debugging log
-                const response = await axios.get(`${API_URL}/api/register-event-page/${eventId}`);
-                setEvent(response.data);
+              const response = await axios.get(`${API_URL}/api/register-event-page/${eventId}`);
+              setEvent(response.data);
             } catch (error) {
                 console.error('Error fetching event:', error); // Detailed error log
             }
@@ -26,9 +25,13 @@ const RegisterEvent = () => {
     }, [eventId]);
 
     if (!event) return <div className="p-8 text-center">Loading...</div>;
+    const imageUrl = `https://picsum.photos/1600/900/?${event.title}`;
 
     return (
-        <div className='p-8 max-w-4xl mx-auto bg-gray-800 text-white rounded-lg shadow-lg'>
+        <div className='p-8 mx-auto text-white rounded-lg '>
+            
+            <img className='rounded-md w-full h-96' alt='cover' src={imageUrl} />
+
             <h1 className='text-3xl font-bold mb-4'>{event.title}</h1>
             <p className='text-lg mb-4'>{event.description}</p>
             <div className='mb-4'>

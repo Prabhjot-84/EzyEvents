@@ -89,8 +89,7 @@ export const getEventDetails = async (req, res) => {
         console.log('Fetching event with ID:', eventId); // Debugging log
 
         // Fetch the event from the database using the eventId
-        const event = await Event.findById(eventId);
-        console.log('Event found:', event); // Debugging log
+        const event = await EventModel.findById(eventId);
 
         // Check if the event exists
         if (!event) {
