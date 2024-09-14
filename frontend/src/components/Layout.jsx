@@ -12,7 +12,7 @@ const Layout = () => {
                 </div>
             </SignedOut>
             <SignedIn>
-                <div className='bg-slate-800 min-h-screen'>
+                <div className='bg-gradient-to-br from-sky-200 to-pink-200 bg-gradient min-h-screen'>
                     <Navbar />            
                     <Outlet />
                 </div>

@@ -28,7 +28,7 @@ const ViewEvents = () => {
 
     return (
         <div className='flex flex-col p-8'>
-            <h1 className='text-white text-xl mb-8'>Have a look at all the Listed Events</h1>
+            {/* <h1 className='text-white text-xl mb-8'>Have a look at all the Listed Events</h1> */}
             <div className='flex flex-wrap'>
                 {events.length > 0 ? (
                     events.map((event) => (
