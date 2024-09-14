@@ -18,9 +18,9 @@ const Navbar = () => {
                         <h1 className='text-xl md:text-2xl lg:text-3xl font-bold hidden sm:block'> &nbsp;EzyEvents </h1>
                     </div>
 
-                    <Link to='/my-events' className='text-sm sm:text-base md:text-lg lg:text-xl bg-slate-100 p-2 rounded-md hover:scale-105 hover:bg-slate-200'> My Events </Link>
-                    <Link to='/view-events' className='text-sm sm:text-base md:text-lg lg:text-xl bg-slate-100 p-2 rounded-md hover:scale-105 hover:bg-slate-200'> View Events </Link>
-                    <Link to='/history' className='text-sm sm:text-base md:text-lg lg:text-xl bg-slate-100 p-2 rounded-md hover:scale-105 hover:bg-slate-200'> History </Link>
+                    <Link to='/my-events' className='text-sm sm:text-base md:text-lg  bg-slate-100 p-2 rounded-md hover:scale-105 hover:bg-slate-200'> My Events </Link>
+                    <Link to='/view-events' className='text-sm sm:text-base md:text-lg bg-slate-100 p-2 rounded-md hover:scale-105 hover:bg-slate-200'> View Events </Link>
+                    <Link to='/history' className='text-sm sm:text-base md:text-lg bg-slate-100 p-2 rounded-md hover:scale-105 hover:bg-slate-200'> History </Link>
 
                 </div>
 

@@ -43,7 +43,7 @@ const MyEvents = () => {
         <>
             <div className='flex flex-col justify-start items-start p-8'>
 
-                <Link to='/create-event' className='mx-auto my-6 w-[250px] border-2 flex justify-evenly items-center text-slate-800 bg-sky-500 rounded-md hover:scale-[1.02] hover:bg-yellow-300'>
+                <Link to='/create-event' className='mx-auto my-6 w-[250px] border-2 flex justify-evenly items-center text-slate-800 bg-sky-200 rounded-md hover:scale-[1.02] hover:bg-yellow-200'>
                     <h1 className='font-semibold text-xl'> Create Event </h1>
                     <img src={CreateBtn} alt='add' />
                 </Link>
