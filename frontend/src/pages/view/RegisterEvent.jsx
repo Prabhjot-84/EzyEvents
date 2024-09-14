@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const RegisterEvent = () => {
     const { eventId } = useParams(); // Extract eventId from URL parameters
+    const navigate = useNavigate(); // Initialize useNavigate
     const [event, setEvent] = useState(null);
     const API_URL = 'http://localhost:5000'; // Adjust to your API URL
 
     useEffect(() => {
         const fetchEvent = async () => {
             try {
-              const response = await axios.get(`${API_URL}/api/register-event-page/${eventId}`);
-              setEvent(response.data);
+                const response = await axios.get(`${API_URL}/api/register-event-page/${eventId}`);
+                setEvent(response.data);
             } catch (error) {
                 console.error('Error fetching event:', error); // Detailed error log
             }
@@ -27,9 +28,14 @@ const RegisterEvent = () => {
     if (!event) return <div className="p-8 text-center">Loading...</div>;
     const imageUrl = `https://picsum.photos/1600/900/?${event.title}`;
 
+    const handleRegisterClick = () => {
+        // Here you can implement the registration logic
+        // For now, it will navigate to the home page
+        navigate('/');
+    };
+
     return (
-        <div className='p-8 mx-auto text-white rounded-lg '>
-            
+        <div className='p-8 mx-auto text-white rounded-lg'>
             <img className='rounded-md w-full h-96' alt='cover' src={imageUrl} />
 
             <h1 className='text-3xl font-bold mb-4'>{event.title}</h1>
@@ -46,7 +52,7 @@ const RegisterEvent = () => {
             <div className='mt-4 text-center'>
                 <button
                     className='bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded'
-                    onClick={() => alert('Registration functionality not implemented')}
+                    onClick={handleRegisterClick} // Update onClick to use handleRegisterClick
                 >
                     Register
                 </button>
