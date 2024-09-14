@@ -6,7 +6,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import { addEventFunc } from './controller/create.js'
 ;
-import { getAllEvents, readEvent, readUserEvents } from './controller/read.js';
+import { getAllEvents, getEventDetails, readEvent, readUserEvents } from './controller/read.js';
 import { updateEvent } from './controller/update.js';
 
 dotenv.config();
@@ -36,6 +36,7 @@ app.post('/api/events', addEventFunc); // route for adding events
 app.get('/api/events', readUserEvents);
 app.get('/api/allevents', getAllEvents);  // route to get all events
 app.get('/api/my-event-info/:id', readEvent);  // Route to read an event
+app.get('/api/register-event-page/:eventId', getEventDetails);
 
 // UPDATE
 app.put('/api/update-event/:id', updateEvent);

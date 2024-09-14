@@ -79,3 +79,28 @@ export const readEvent = async (req, res) => {
         });
     }
 };
+
+
+
+export const getEventDetails = async (req, res) => {
+    const { eventId } = req.params;
+
+    try {
+        console.log('Fetching event with ID:', eventId); // Debugging log
+
+        // Fetch the event from the database using the eventId
+        const event = await Event.findById(eventId);
+        console.log('Event found:', event); // Debugging log
+
+        // Check if the event exists
+        if (!event) {
+            return res.status(404).json({ message: 'Event not found' });
+        }
+
+        // Send the event data as a response
+        res.json(event);
+    } catch (error) {
+        console.error('Error fetching event:', error); // Detailed error log
+        res.status(500).json({ message: 'Server error' });
+    }
+};
