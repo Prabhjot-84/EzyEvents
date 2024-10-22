@@ -17,7 +17,7 @@ const ViewEvents = () => {
                 });
 
                 // Assuming response.data is an array of events
-                setEvents(response.data);
+                setEvents(response.data.events);
             } catch (error) {
                 console.error('Error fetching events:', error);
             }

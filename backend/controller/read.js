@@ -2,7 +2,6 @@ import EventModel from '../models/Event.js'; // Import the Event model
 
 // Function to fetch events for a specific user
 export const readUserEvents = async (req, res) => {
-    
     try {
         const { userId } = req.query; // Get the userId from query parameters
 
@@ -35,17 +34,20 @@ export const readUserEvents = async (req, res) => {
     }
 };
 
-
-
-
+// Function to fetch all events
 export const getAllEvents = async (req, res) => {
     try {
         // Fetch all events from the database
         const events = await EventModel.find();
 
         // Send the events in the response
-        res.status(200).json(events);
-    } catch (error) {
+        res.status(200).json({
+            message: 'Events fetched successfully',
+            events
+        });
+    } 
+    
+    catch (error) {
         console.error('Error fetching events:', error.message);
         res.status(500).json({
             message: 'An error occurred while fetching events',
@@ -54,8 +56,7 @@ export const getAllEvents = async (req, res) => {
     }
 };
 
-
-
+// Function to fetch a specific event by ID
 export const readEvent = async (req, res) => {
     try {
         const { id } = req.params; // Get the event ID from the URL parameters
@@ -69,8 +70,13 @@ export const readEvent = async (req, res) => {
         }
 
         // Return the event details
-        res.status(200).json(event);
-    } catch (error) {
+        res.status(200).json({
+            message: 'Event fetched successfully',
+            event
+        });
+    }
+
+    catch (error) {
         // Handle any errors that occurred
         console.error('Error fetching event:', error.message);
         res.status(500).json({
@@ -80,8 +86,7 @@ export const readEvent = async (req, res) => {
     }
 };
 
-
-
+// Function to get event details by eventId
 export const getEventDetails = async (req, res) => {
     const { eventId } = req.params;
 
@@ -95,8 +100,13 @@ export const getEventDetails = async (req, res) => {
         }
 
         // Send the event data as a response
-        res.json(event);
-    } catch (error) {
+        res.status(200).json({
+            message: 'Event details fetched successfully',
+            event
+        });
+    } 
+    
+    catch (error) {
         console.error('Error fetching event:', error); // Detailed error log
         res.status(500).json({ message: 'Server error' });
     }
