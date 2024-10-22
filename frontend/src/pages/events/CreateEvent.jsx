@@ -11,7 +11,7 @@ import Price from '../../assets/price.png'
 
 const CreateEvent = () => {
     
-    const API_URL = 'http://localhost:5000';
+    const API_URL = process.env.BACKEND_API_URL || 'http://localhost:5000';
 
     const navigate = useNavigate(); // Initialize useNavigate
     // Extracting User id from Clerk

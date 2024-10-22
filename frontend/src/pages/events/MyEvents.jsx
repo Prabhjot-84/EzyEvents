@@ -6,7 +6,7 @@ import { useUser } from '@clerk/clerk-react'; // Import Clerk's useUser to get u
 const MyEvents = () => {
     const { user } = useUser();  // Getting the user object from Clerk
     const userId = user.id;  // Extracting userId from the logged-in user 
-    const API_URL = 'http://localhost:5000';  // Replace with your actual API URL
+    const API_URL = process.env.BACKEND_API_URL || 'http://localhost:5000';  // Replace with your actual API URL
 
     // State to store events
     const [events, setEvents] = useState([]);
@@ -35,7 +35,7 @@ const MyEvents = () => {
         if (userId) {
             fetchEvents();
         }
-    }, [userId]);
+    }, [API_URL, userId]);
 
     return (
         <>

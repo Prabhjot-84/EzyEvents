@@ -11,7 +11,7 @@ const RegisterEvent = () => {
     const { eventId } = useParams(); // Extract eventId from URL parameters
     const navigate = useNavigate(); // Initialize useNavigate 
     const [event, setEvent] = useState([]);
-    const API_URL = 'http://localhost:5000'; 
+    const API_URL = process.env.BACKEND_API_URL || 'http://localhost:5000';
 
     useEffect(() => {
         const fetchEvent = async () => {
@@ -32,10 +32,12 @@ const RegisterEvent = () => {
 
         if (eventId) { // Ensure eventId is available before making the request
             fetchEvent();
-        } else {
+        } 
+        
+        else {
             console.error('No eventId found'); // Debugging log
         }
-    }, [eventId]);
+    }, [API_URL, eventId]);
 
     if (!event) return <div className="p-8 text-center">Loading...</div>;
 
@@ -43,7 +45,6 @@ const RegisterEvent = () => {
     // PAYMENT FUNCTION 
 
     const handlePayment = async () => {
-        
         navigate('/');
     };
 
